@@ -18,3 +18,6 @@ pillow
 streamlit
 
 setuptools<70.0.0
+
+librosa
+resemblyzer
