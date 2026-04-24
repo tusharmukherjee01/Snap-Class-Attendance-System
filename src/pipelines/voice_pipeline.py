@@ -43,6 +43,7 @@ def identify_speaker(new_embedding, candidates_dict, threshold=0.65):
     return None, best_score
 
 
+
 def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
 
     try:
@@ -53,6 +54,7 @@ def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
 
         identified_results = {}
 
+
         for start, end in segments:
 
             if (end-start) < sr * 0.5:
@@ -60,6 +62,7 @@ def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
             segment_audio = audio[start:end]
             wav = preprocess_wav(segment_audio)
             embedding = encoder.embed_utterance(wav)
+
 
             sid, score = identify_speaker(embedding, candidates_dict, threshold)
 
